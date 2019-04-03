@@ -134,13 +134,15 @@ Query comparisonOp = new Query()
 #### Now, this more complex code will query a Calendar List, with Equality and Logical Operators (at this case, follow the CAML Query specifications about use until twice Equality Operators inner Logical Operators):
 
 ```cs
+using SPUtility = Microsoft.SharePoint.Utilities.SPUtility;
+
 int currentYear = DateTime.Now.Year;
 
 DateTime startDateFxDT = new DateTime(currentYear, 1, 1),
          endDatFxDT = new DateTime(currentYear, 12, 31);
 
-string startDateFx = Microsoft.SharePoint.Utilities.SPUtility.CreateISO8601DateTimeFromSystemDateTime(startDateFxDT),
-       endDateFx = Microsoft.SharePoint.Utilities.SPUtility.CreateISO8601DateTimeFromSystemDateTime(endDatFxDT);
+string startDateFx = SPUtility.CreateISO8601DateTimeFromSystemDateTime(startDateFxDT),
+         endDateFx = SPUtility.CreateISO8601DateTimeFromSystemDateTime(endDatFxDT);
 
 Query query = new Query()
 {
