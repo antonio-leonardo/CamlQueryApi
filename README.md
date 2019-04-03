@@ -44,24 +44,24 @@ SPQuery spQuery = new SPQuery()
 //But at CSOM, the developer need to instantiate the View Object, like this:
 View camlQueryObjCSOM = new View()
 {
-	Query = new Query()
-	{
-		Where = new Where()
-		{
-			Eq = new Eq()
-			{
-				FieldRef = new FieldRef()
-				{
-					Name = "ColumnName"
-				},
-				Value = new Value()
-				{
-					Type = ValueType.Text,
-					TextValue = "Column Text Value"
-				}
-			}
-		}
-	}
+  Query = new Query()
+  {
+    Where = new Where()
+    {
+      Eq = new Eq()
+      {
+        FieldRef = new FieldRef()
+        {
+        	Name = "ColumnName"
+        },
+        Value = new Value()
+        {
+        	Type = ValueType.Text,
+        	TextValue = "Column Text Value"
+        }
+      }
+    }
+  }
 };
 
 //Catch the string result...
