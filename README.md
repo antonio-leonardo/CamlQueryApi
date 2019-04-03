@@ -5,7 +5,8 @@ To test and preview Caml Query Strings generation results by this Api, not neede
 
 But remeber: if you're work with Farm Solution on different SharePoint versions, switch/change .Net Framework version and using x64 build.
 
-Follow the codes examples bellow to test and validate:
+
+#### Follow the simple codes examples bellow to test and validate:
 
 ```cs
 //This object means an record selection on
@@ -92,4 +93,94 @@ CamlQuery spQuery = new CamlQuery()
 {
    ViewXml = camlQueryStrCSOM
 };
+```
+
+
+
+#### At these codes bellow, we have example of Comparison Operators:
+
+```cs
+Query comparisonOp = new Query()
+{
+    Where = new Where()
+    {
+        IsNull = new IsNull()
+        {
+            FieldRef = new FieldRef()
+            {
+                Name = "ComlumnName"
+            }
+        }
+    }
+};
+
+Query comparisonOp = new Query()
+{
+    Where = new Where()
+    {
+        IsNotNull = new IsNotNull()
+        {
+            FieldRef = new FieldRef()
+            {
+                Name = "ComlumnName"
+            }
+        }
+    }
+};
+```
+
+
+
+#### Now, this more complex code will query a Calendar List, with Equality and Logical Operators (at this case, follow the CAML Query specifications about use until twice Equality Operators inner Logical Operators):
+
+```cs
+int currentYear = DateTime.Now.Year;
+
+DateTime startDateFxDT = new DateTime(currentYear, 1, 1),
+         endDatFxDT = new DateTime(currentYear, 12, 31);
+
+string startDateFx = Microsoft.SharePoint.Utilities.SPUtility.CreateISO8601DateTimeFromSystemDateTime(startDateFxDT),
+       endDateFx = Microsoft.SharePoint.Utilities.SPUtility.CreateISO8601DateTimeFromSystemDateTime(endDatFxDT);
+
+Query query = new Query()
+{
+    Where = new Where()
+    {
+        And = new And[1]
+    }
+};
+
+query.Where.And[0] = new And()
+{
+    Geq = new Geq[1],
+    Leq = new Leq[1]
+};
+
+query.Where.And[0].Geq[0] = new Geq()
+{
+    FieldRef = new FieldRef()
+    {
+        Name = "EventDate"
+    },
+    Value = new Value()
+    {
+        IncludeTimeValue = false,
+        Type = CamlQueryApi.ValueType.DateTime,
+        TextValue = startDateFx
+    }
+};
+
+query.Where.And[0].Leq[0] = new Leq()
+{
+    FieldRef = new FieldRef()
+    {
+        Name = "EventDate"
+    },
+    Value = new Value()
+    {
+        IncludeTimeValue = false,
+        Type = CamlQueryApi.ValueType.DateTime,
+        TextValue = endDateFx
+    }
+}
 ```
