@@ -32,15 +32,14 @@ Query camlQueryObjSSOM = new Query()
 
 //... and catch the string result
 string camlQueryStrSSOM = camlQueryObjSSOM.ToString();
-//The result of camlQueryStrSSOM variable is (pear attetion on XML result, the 'Query' is removed by API):
-//*
+
+//The result of camlQueryStrSSOM variable is (pear attention on XML result, the 'Query' is removed by API):
 //<Where>
-//    <Eq>
-//      <FieldRef Name="ColumnName" Ascending="false" Explicit="false" LookupId="false" TextOnly="false" />
-//      <Value Type="Text" IncludeTimeValue="false">Column Text Value</Value>
-//    </Eq>
-//  </Where>
-*//
+//  <Eq>
+//    <FieldRef Name="ColumnName" Ascending="false" Explicit="false" LookupId="false" TextOnly="false" />
+//    <Value Type="Text" IncludeTimeValue="false">Column Text Value</Value>
+//  </Eq>
+//</Where>
 
 //Use on Microsoft SharePoint Server Object Model (by 'Microsoft.SharePoint' directive):
 SPQuery spQuery = new SPQuery()
@@ -75,8 +74,8 @@ View camlQueryObjCSOM = new View()
 
 //Catch the string result...
 string camlQueryStrCSOM = camlQueryObjCSOM.ToString();
+
 //The result of camlQueryStrCSOM variable is:
-//*
 //<View>
 //  <Query>
 //    <Where>
@@ -87,7 +86,6 @@ string camlQueryStrCSOM = camlQueryObjCSOM.ToString();
 //    </Where>
 //  </Query>
 //</View>
-*//
 
 //... and use on Microsoft SharePoint Client Object Model (by 'Microsoft.SharePoint.Client' directive):
 CamlQuery spQuery = new CamlQuery()
