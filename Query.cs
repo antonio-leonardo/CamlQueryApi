@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable, XmlRoot]
-    public sealed class Query //: CamlQueryApiBase
+    public sealed class Query
     {
         [XmlElement]
         public Where Where { get; set; }

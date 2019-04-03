@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable]
-    public class ViewFields //: CamlQueryApiBase
+    public class ViewFields
     {
         [XmlElement]
         public FieldRefViewFields[] FieldRef { get; set; }

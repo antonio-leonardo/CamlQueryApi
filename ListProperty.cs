@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable, XmlRoot]
-    public sealed class ListProperty //: CamlQueryApiBase
+    public sealed class ListProperty
     {
         [XmlElement]
         public bool AutoHyperLink { get; set; }

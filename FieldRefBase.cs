@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable, XmlRoot]
-    public class FieldRefBase //: CamlQueryApiBase
+    public class FieldRefBase
     {
         [XmlAttribute]
         public virtual string Name { get; set; }

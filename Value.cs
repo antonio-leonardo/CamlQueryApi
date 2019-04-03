@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable]
-    public sealed class Value //: CamlQueryApiBase
+    public sealed class Value
     {
         [XmlAttribute]
         public ValueType Type { get; set; }

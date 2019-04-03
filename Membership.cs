@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable, XmlRoot]
-    public sealed class Membership //: CamlQueryApiBase
+    public sealed class Membership
     {
         [XmlAttribute]
         public MembershipType Type { get; set; }
