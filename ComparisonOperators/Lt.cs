@@ -11,5 +11,9 @@ namespace CamlQueryApi
     [Serializable, XmlRoot]
     public sealed class Lt : ComparisonOperatorsBase
     {
+        public override string ToString()
+        {
+            return this.ToCamlString();
+        }
     }
 }

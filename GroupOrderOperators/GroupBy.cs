@@ -13,5 +13,10 @@ namespace CamlQueryApi
     {
         [XmlAttribute]
         public bool Collapse { get; set; }
+
+        public override string ToString()
+        {
+            return this.ToCamlString();
+        }
     }
 }

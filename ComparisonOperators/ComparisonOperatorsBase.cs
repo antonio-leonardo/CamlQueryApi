@@ -13,5 +13,10 @@ namespace CamlQueryApi
     {
         [XmlElement]
         public Value Value { get; set; }
+
+        public override string ToString()
+        {
+            return this.ToCamlString();
+        }
     }
 }

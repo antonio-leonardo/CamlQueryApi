@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable, XmlRoot]
-    public sealed class ListProperty : CamlQueryApiBase
+    public sealed class ListProperty //: CamlQueryApiBase
     {
         [XmlElement]
         public bool AutoHyperLink { get; set; }
@@ -40,5 +40,10 @@ namespace CamlQueryApi
 
         [XmlElement]
         public bool URLEncondeAsURL { get; set; }
+
+        public override string ToString()
+        {
+            return this.ToCamlString();
+        }
     }
 }

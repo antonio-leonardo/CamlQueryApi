@@ -22,5 +22,10 @@ namespace CamlQueryApi
 
         [XmlElement]
         public GroupBy GroupBy { get; set; }
+
+        public override string ToString()
+        {
+            return this.ToCamlString();
+        }
     }
 }

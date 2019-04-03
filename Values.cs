@@ -9,9 +9,14 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable]
-    public sealed class Values : CamlQueryApiBase
+    public sealed class Values //: CamlQueryApiBase
     {
         [XmlElement]
         public Value[] Value { get; set; }
+
+        public override string ToString()
+        {
+            return this.ToCamlString();
+        }
     }
 }

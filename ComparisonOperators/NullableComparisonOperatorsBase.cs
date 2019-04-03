@@ -9,9 +9,14 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable]
-    public class NullableComparisonOperatorsBase : CamlQueryApiBase
+    public class NullableComparisonOperatorsBase
     {
         [XmlElement]
         public FieldRef FieldRef { get; set; }
+
+        public override string ToString()
+        {
+            return this.ToCamlString();
+        }
     }
 }

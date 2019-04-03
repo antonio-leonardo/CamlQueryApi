@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable, XmlRoot]
-    public class LogicalJoinsBase : CamlQueryApiBase
+    public class LogicalJoinsBase
     {
         [XmlElement]
         public BeginsWith BeginsWith { get; set; }
@@ -52,5 +52,10 @@ namespace CamlQueryApi
 
         [XmlElement]
         public NotIncludes NotIncludes { get; set; }
+
+        public override string ToString()
+        {
+            return this.ToCamlString();
+        }
     }
 }

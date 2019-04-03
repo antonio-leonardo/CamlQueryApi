@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable, XmlRoot]
-    public sealed class OrderBy : CamlQueryApiBase
+    public sealed class OrderBy
     {
         [XmlAttribute]
         public bool Override { get; set; }
@@ -19,5 +19,10 @@ namespace CamlQueryApi
 
         [XmlElement]
         public FieldRef[] FieldRef { get; set; }
+
+        public override string ToString()
+        {
+            return this.ToCamlString();
+        }
     }
 }

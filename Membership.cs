@@ -9,12 +9,17 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable, XmlRoot]
-    public sealed class Membership : CamlQueryApiBase
+    public sealed class Membership //: CamlQueryApiBase
     {
         [XmlAttribute]
         public MembershipType Type { get; set; }
 
         [XmlElement]
         public FieldRef[] FieldRef { get; set; }
+
+        public override string ToString()
+        {
+            return this.ToCamlString();
+        }
     }
 }

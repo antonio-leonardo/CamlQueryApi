@@ -3,6 +3,7 @@
 //My profile: https://br.linkedin.com/in/antonio-leonardo
 //Contacts: antonio.leonardo@outlook.com.br
 
+using System;
 using System.IO;
 using System.Xml;
 using System.Text;
@@ -10,21 +11,6 @@ using System.Xml.Serialization;
 
 namespace CamlQueryApi
 {
-    /// <summary>
-    /// Defined abstraction to be used in Serializer
-    /// </summary>
-    public class CamlQueryApiBase
-    {
-        /// <summary>
-        /// This overriden ToString makes the serialization, transform the POCO-base object to string
-        /// </summary>
-        /// <returns>System.String</returns>
-        public override string ToString()
-        {
-            return this.ToCamlString();
-        }
-    }
-
     /// <summary>
     /// Utilitary class to define internal methods, used only on API
     /// </summary>
@@ -45,12 +31,13 @@ namespace CamlQueryApi
         /// <typeparam name="TEntity">CAML Query Entity Class</typeparam>
         /// <param name="obj">Object based on Generic defined Entity class</param>
         /// <returns>System.String</returns>
-        internal static string ToCamlString<TEntity>(this TEntity obj) where TEntity : CamlQueryApiBase, new()
+        internal static string ToCamlString<TEntity>(this TEntity obj) where TEntity : class, new()
         {
+            Type currentType = typeof(TEntity);
             XmlSerializer serializer = null;
             XmlWriterSettings settings = null;
             XmlSerializerNamespaces ns = null;
-            string className = (typeof(TEntity)).Name;
+            string className = currentType.Name;
             const string BEGIN_BEGIN_TAG = "<",
                          BEGIN_END_TAG = "</",
                          END_TAG = ">";
@@ -63,7 +50,7 @@ namespace CamlQueryApi
 
                 using (XmlWriter xmlTxtWriter = XmlTextWriter.Create(stringWriter, settings))
                 {
-                    serializer = new XmlSerializer(typeof(TEntity));
+                    serializer = new XmlSerializer(currentType);
                     ns = new XmlSerializerNamespaces();
                     ns.Add("", "");
                     serializer.Serialize(xmlTxtWriter, obj, ns);

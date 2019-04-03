@@ -53,5 +53,10 @@ namespace CamlQueryApi
 
         [XmlIgnore]
         public string Type { get; set; }
+
+        public override string ToString()
+        {
+            return this.ToCamlString();
+        }
     }
 }

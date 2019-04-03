@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable]
-    public sealed class Value : CamlQueryApiBase
+    public sealed class Value //: CamlQueryApiBase
     {
         [XmlAttribute]
         public ValueType Type { get; set; }
@@ -22,5 +22,10 @@ namespace CamlQueryApi
 
         [XmlElement]
         public ListProperty[] ListProperties { get; set; }
+
+        public override string ToString()
+        {
+            return this.ToCamlString();
+        }
     }
 }

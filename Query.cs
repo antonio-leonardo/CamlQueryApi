@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable, XmlRoot]
-    public sealed class Query : CamlQueryApiBase
+    public sealed class Query //: CamlQueryApiBase
     {
         [XmlElement]
         public Where Where { get; set; }
@@ -14,5 +14,10 @@ namespace CamlQueryApi
 
         [XmlElement]
         public OrderBy OrderBy { get; set; }
+
+        public override string ToString()
+        {
+            return this.ToCamlString();
+        }
     }
 }

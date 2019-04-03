@@ -9,11 +9,16 @@ using System.Xml.Serialization;
 namespace CamlQueryApi
 {
     [Serializable, XmlRoot]
-    public sealed class DateRangesOverlap : CamlQueryApiBase
+    public sealed class DateRangesOverlap //: CamlQueryApiBase
     {
         [XmlElement]
         public FieldRef[] FieldRef { get; set; }
 
         public Value Value { get; set; }
+
+        public override string ToString()
+        {
+            return this.ToCamlString();
+        }
     }
 }
