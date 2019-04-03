@@ -184,3 +184,34 @@ query.Where.And[0].Leq[0] = new Leq()
     }
 }
 ```
+
+
+
+#### Using OrderBy statement:
+
+```cs
+Query result = new Query
+{
+    Where = new Where()
+    {
+        IsNull = new IsNull()
+        {
+            FieldRef = new FieldRef()
+            {
+                Name = "ColumnName"
+            }
+        }
+    },
+    OrderBy = new OrderBy()
+    {
+        FieldRef = new FieldRef[1]
+    }
+};
+result.OrderBy.FieldRef[0] = new FieldRef()
+{
+    Name = "AnotherColumnName",
+    Ascending = true
+};
+```
+
+That's all folks
