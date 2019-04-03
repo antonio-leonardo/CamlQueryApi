@@ -39,7 +39,7 @@ SPQuery spQuery = new SPQuery()
    Query = camlQueryStrSSOM
 };
 
-//****//
+//********************************************************************//
 
 //But at CSOM, the developer need to instantiate the View Object, like this:
 View camlQueryObjCSOM = new View()
