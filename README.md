@@ -34,12 +34,12 @@ Query camlQueryObjSSOM = new Query()
 string camlQueryStrSSOM = camlQueryObjSSOM.ToString();
 //The result of camlQueryStrSSOM variable is (pear attetion on XML result, the 'Query' is removed by API):
 //*
-<Where>
-    <Eq>
-      <FieldRef Name="ColumnName" Ascending="false" Explicit="false" LookupId="false" TextOnly="false" />
-      <Value Type="Text" IncludeTimeValue="false">Column Text Value</Value>
-    </Eq>
-  </Where>
+//<Where>
+//    <Eq>
+//      <FieldRef Name="ColumnName" Ascending="false" Explicit="false" LookupId="false" TextOnly="false" />
+//      <Value Type="Text" IncludeTimeValue="false">Column Text Value</Value>
+//    </Eq>
+//  </Where>
 *//
 
 //Use on Microsoft SharePoint Server Object Model (by 'Microsoft.SharePoint' directive):
@@ -77,16 +77,16 @@ View camlQueryObjCSOM = new View()
 string camlQueryStrCSOM = camlQueryObjCSOM.ToString();
 //The result of camlQueryStrCSOM variable is:
 //*
-<View>
-  <Query>
-    <Where>
-      <Eq>
-        <FieldRef Name="ColumnName" Ascending="false" Explicit="false" LookupId="false" TextOnly="false" />
-        <Value Type="Text" IncludeTimeValue="false">Column Text Value</Value>
-      </Eq>
-    </Where>
-  </Query>
-</View>
+//<View>
+//  <Query>
+//    <Where>
+//      <Eq>
+//        <FieldRef Name="ColumnName" Ascending="false" Explicit="false" LookupId="false" TextOnly="false" />
+//        <Value Type="Text" IncludeTimeValue="false">Column Text Value</Value>
+//      </Eq>
+//    </Where>
+//  </Query>
+//</View>
 *//
 
 //... and use on Microsoft SharePoint Client Object Model (by 'Microsoft.SharePoint.Client' directive):
