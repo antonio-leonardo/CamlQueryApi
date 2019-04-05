@@ -1,7 +1,7 @@
 # Caml Query Api
 This API generates a performable and simplest way to CAML Query String result through an instance of a POCO (Plain Old C# Object) class using native .NET [System.Xml.Serialization](https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization) namespace; this Api strictly follows the [Query Schema of CAML documented at Microsoft docs](https://docs.microsoft.com/en-us/sharepoint/dev/schema/query-schema).
 
-To test and preview Caml Query Strings generation results by this Api, not needed download SharePoint Client Components SQK and the developer may reference this as a Assembly in your Visual Studio C# SharePoint projects like Farm Solution or SharePoint Add-ins Provider-Hosted.
+To test and preview Caml Query Strings generation results by this Api, not needed download SharePoint Client Components SDK and the developer may reference this as a Assembly in your Visual Studio C# SharePoint projects like Farm Solution or SharePoint Add-ins Provider-Hosted.
 
 But remeber: if you're work with Farm Solution on different SharePoint versions, switch/change .Net Framework version and using x64 build.
 
@@ -215,5 +215,7 @@ result.OrderBy.FieldRef[0] = new FieldRef()
     Ascending = true
 };
 ```
+----------------------
+## License
 
-That's all folks
+[View MIT license](https://github.com/antonio-leonardo/CamlQueryApi/blob/master/LICENSE)
