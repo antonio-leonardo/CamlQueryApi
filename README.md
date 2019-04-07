@@ -31,25 +31,27 @@ Query camlQueryObjSSOM = new Query()
     }
 };
 
-//... and catch the string result
+//and catch the string result
 string camlQueryStrSSOM = camlQueryObjSSOM.ToString();
-
-//The result of camlQueryStrSSOM variable is (pear attention on XML result, the 'Query' is removed by API):
-//<Where>
-//  <Eq>
-//    <FieldRef Name="ColumnName" Ascending="false" Explicit="false" LookupId="false" TextOnly="false" />
-//    <Value Type="Text" IncludeTimeValue="false">Column Text Value</Value>
-//  </Eq>
-//</Where>
-
+```
+```xml
+<!--The result of camlQueryStrSSOM variable follow bellow.
+Pear attention on XML result, the 'Query' node is removed by API.-->
+<Where>
+  <Eq>
+    <FieldRef Name="ColumnName" Ascending="false" Explicit="false" LookupId="false" TextOnly="false" />
+    <Value Type="Text" IncludeTimeValue="false">Column Text Value</Value>
+  </Eq>
+</Where>
+```
+```cs
 //Use on Microsoft SharePoint Server Object Model (by 'Microsoft.SharePoint' directive):
 SPQuery spQuery = new SPQuery()
 {
    Query = camlQueryStrSSOM
 };
-
-//********************************************************************//
-
+```
+```cs
 //But at CSOM, the developer need to instantiate the View Object, like this:
 View camlQueryObjCSOM = new View()
 {
@@ -75,19 +77,21 @@ View camlQueryObjCSOM = new View()
 
 //Catch the string result...
 string camlQueryStrCSOM = camlQueryObjCSOM.ToString();
-
-//The result of camlQueryStrCSOM variable is:
-//<View>
-//  <Query>
-//    <Where>
-//      <Eq>
-//        <FieldRef Name="ColumnName" Ascending="false" Explicit="false" LookupId="false" TextOnly="false" />
-//        <Value Type="Text" IncludeTimeValue="false">Column Text Value</Value>
-//      </Eq>
-//    </Where>
-//  </Query>
-//</View>
-
+```
+```xml
+<!--The result of camlQueryStrCSOM variable is:-->
+<View>
+  <Query>
+    <Where>
+      <Eq>
+        <FieldRef Name="ColumnName" Ascending="false" Explicit="false" LookupId="false" TextOnly="false" />
+        <Value Type="Text" IncludeTimeValue="false">Column Text Value</Value>
+      </Eq>
+    </Where>
+  </Query>
+</View>
+```
+```cs
 //... and use on Microsoft SharePoint Client Object Model (by 'Microsoft.SharePoint.Client' directive):
 CamlQuery spQuery = new CamlQuery()
 {
