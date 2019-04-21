@@ -1,4 +1,4 @@
-# Caml Query Api
+# C# Caml Query Api
 The focus with this API is not leak memory with string concat portions and generates with performance and givest simplest way to CAML Query String result only through an instance of a POCO (Plain Old CLR Object) class using native .NET [System.Xml.Serialization](https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization) namespace; this Api strictly follows the [Query Schema of CAML documented at Microsoft docs](https://docs.microsoft.com/en-us/sharepoint/dev/schema/query-schema).
 
 To test and preview Caml Query Strings generation results by this Api, not needed download SharePoint Client Components SDK and the developer may reference this as a Assembly in your Visual Studio C# SharePoint projects like Farm Solution or SharePoint Add-ins Provider-Hosted.
